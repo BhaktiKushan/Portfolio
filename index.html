@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhakti Kushan - Portfolio | B-Tech CSE (AI & ML) Student</title>
+    <meta name="description" content="Bhakti Kushan - B-Tech Final Year CSE (AI & ML) Student. MERN Stack Developer passionate about web development and AI/ML technologies." />
+    <meta name="keywords" content="Bhakti Kushan, B-Tech, CSE, AI, ML, MERN Stack, React, Node.js, MongoDB, Web Developer, Portfolio" />
+    <meta name="author" content="Bhakti Kushan" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bhaktikushan-portfolio.vercel.app/" />
+    <meta property="og:title" content="Bhakti Kushan - Portfolio | B-Tech CSE (AI & ML) Student" />
+    <meta property="og:description" content="B-Tech Final Year CSE (AI & ML) Student. MERN Stack Developer passionate about web development and AI/ML technologies." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bhaktikushan-portfolio.vercel.app/" />
+    <meta property="twitter:title" content="Bhakti Kushan - Portfolio | B-Tech CSE (AI & ML) Student" />
+    <meta property="twitter:description" content="B-Tech Final Year CSE (AI & ML) Student. MERN Stack Developer passionate about web development and AI/ML technologies." />
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      
+      /* Loading animation */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ffffff30;
+        border-top: 4px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
