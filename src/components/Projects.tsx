@@ -1,8 +1,17 @@
 import React from 'react';
-import { ExternalLink, Github, MessageCircle, ShoppingCart, Calculator, QrCode, Utensils } from 'lucide-react';
+import { ExternalLink, Github, MessageCircle, ShoppingCart, Calculator, QrCode, Utensils, Bot } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'Gemini Pro 2.5',
+      description: 'Voice-activated AI assistant powered by Gemini Pro 2.5, enabling users to interact with technology using natural language. Features real-time voice recognition and response.',
+      icon: Bot,
+      link: 'https://gemini-ai-pro-rosy.vercel.app',
+      github: 'https://github.com/BhaktiKushan/Gemini_Voice_Assistant',
+      tags: ['React', 'Real-time', 'Gemini-API', 'Frontend'],
+      color: 'from-blue-500 to-cyan-500'
+    },
     {
       title: 'Chat App',
       description: 'Real-time chat application with modern UI and seamless messaging experience. Built with React and integrated with backend APIs for instant communication.',
