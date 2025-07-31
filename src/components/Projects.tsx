@@ -10,7 +10,7 @@ const Projects = () => {
       link: 'https://gemini-ai-pro-rosy.vercel.app',
       github: 'https://github.com/BhaktiKushan/Gemini_Voice_Assistant',
       tags: ['React', 'Real-time', 'Gemini-API', 'Frontend'],
-      color: 'from-red-500 to-black-500'
+      color: 'from-pink-500 to-yellow-500'
     },
     {
       title: 'Chat App',
