@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,21 +7,88 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Compose email with form data
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:bhaktikushan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink);
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // Validate form data
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        throw new Error('Please fill in all fields');
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!formData.email) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Create properly formatted email content
+      const emailData = {
+        to: 'bhaktikushan@gmail.com',
+        subject: `Portfolio Contact from ${formData.name}`,
+        body: `Hello Bhakti Kushan,
+
+You have received a new message from your portfolio contact form.
+
+SENDER DETAILS:
+Name: ${formData.name}
+Email: ${formData.email}
+Date: ${new Date().toLocaleDateString()}
+Time: ${new Date().toLocaleTimeString()}
+
+MESSAGE:
+${formData.message}
+
+---
+This message was sent from your portfolio contact form.
+You can reply directly to ${formData.email}.
+
+Best regards,
+Portfolio Contact System`
+      };
+
+      // Encode the email data for mailto
+      const encodedSubject = encodeURIComponent(emailData.subject);
+      const encodedBody = encodeURIComponent(emailData.body);
+      const mailtoLink = `mailto:${emailData.to}?subject=${encodedSubject}&body=${encodedBody}`;
+      
+      // Try to open the email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      setSubmitMessage('Email client opened! Please send the email from your email application.');
+      
+      // Log the form submission for debugging
+      console.log('Form Data Submitted:', {
+        formData,
+        timestamp: new Date().toISOString(),
+        status: 'email_opened'
+      });
+      
+      // Clear form after successful submission
+      setTimeout(() => {
+        setFormData({ name: '', email: '', message: '' });
+        setSubmitMessage('');
+      }, 5000);
+
+    } catch (error) {
+      setSubmitMessage(error.message);
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -35,7 +102,7 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       content: '+91 9014761920',
-      link: 'tel:9014761920'
+      link: 'tel:+919014761920'
     },
     {
       icon: MapPin,
@@ -115,11 +182,47 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="mailto:bhaktikushan@gmail.com"
+                  className="flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Mail size={16} className="mr-2" />
+                  Direct Email
+                </a>
+                <a
+                  href="tel:+919014761920"
+                  className="flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  <Phone size={16} className="mr-2" />
+                  Call Now
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send Me a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            
+            {submitMessage && (
+              <div className={`mb-6 p-4 rounded-lg flex items-center ${
+                submitMessage.includes('opened') 
+                  ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300' 
+                  : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
+              }`}>
+                {submitMessage.includes('opened') ? (
+                  <CheckCircle size={20} className="mr-2 flex-shrink-0" />
+                ) : (
+                  <AlertCircle size={20} className="mr-2 flex-shrink-0" />
+                )}
+                <span className="text-sm">{submitMessage}</span>
+              </div>
+            )}
+
+            <div className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Your Name
@@ -131,7 +234,8 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Enter your name"
                 />
               </div>
@@ -147,7 +251,8 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Enter your email"
                 />
               </div>
@@ -162,20 +267,28 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project or opportunity..."
                 />
               </div>
 
               <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={20} className="mr-2" />
-                Send Message
+                {isSubmitting ? 'Sending Message...' : 'Send Message'}
               </button>
-            </form>
+            </div>
+
+            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <p className="text-sm text-blue-700 dark:text-blue-300">
+                <strong>Note:</strong> This form will open your default email client with the message pre-filled. Make sure you have an email application configured, or use the "Direct Email" button above.
+              </p>
+            </div>
           </div>
         </div>
       </div>
