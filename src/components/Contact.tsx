@@ -46,8 +46,14 @@ const Contact = () => {
     {
       icon: Github,
       title: 'GitHub',
-      content: 'BhaktiKushan',
+      content: 'Bhakti Kushan',
       link: 'https://github.com/BhaktiKushan'
+    },
+    {
+      icon: Linkedin,
+      title: 'Linkedin',
+      content: 'Bhakti Kushan',
+      link: 'https://www.linkedin.com/in/bhakti-kushan'
     }
   ];
 
