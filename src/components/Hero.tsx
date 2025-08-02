@@ -25,39 +25,82 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a
-              href="https://github.com/BhaktiKushan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              <Github className="mr-2" size={20} />
-              GitHub
-            </a>
-            <a
-              href="mailto:bhaktikushan@gmail.com"
-              className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              <Mail className="mr-2" size={20} />
-              Email
-            </a>
-            <a
-              href="tel:9014761920"
-              className="flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              <Phone className="mr-2" size={20} />
-              Call
-            </a>
-            <a
-              href="https://docs.google.com/document/d/1nr0VNVsek51lzV55Ee9FzfioVOt17i4k/edit?usp=sharing&ouid=112356708439633219783&rtpof=true&sd=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              <FileText className="mr-2" size={20} />
-              Resume
-            </a>
+          <div className="mb-12">
+            {/* Desktop layout - all buttons in one row */}
+            <div className="hidden sm:flex justify-center gap-4">
+              <a
+                href="https://github.com/BhaktiKushan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Github className="mr-2" size={20} />
+                GitHub
+              </a>
+              <a
+                href="mailto:bhaktikushan@gmail.com"
+                className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Mail className="mr-2" size={20} />
+                Email
+              </a>
+              <a
+                href="tel:9014761920"
+                className="flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Phone className="mr-2" size={20} />
+                Call
+              </a>
+              <a
+                href="https://docs.google.com/document/d/1nr0VNVsek51lzV55Ee9FzfioVOt17i4k/edit?usp=sharing&ouid=112356708439633219783&rtpof=true&sd=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                <FileText className="mr-2" size={20} />
+                Resume
+              </a>
+            </div>
+
+            {/* Mobile layout - 2x2 grid */}
+            <div className="sm:hidden space-y-3">
+              <div className="flex gap-3 justify-center">
+                <a
+                  href="https://github.com/BhaktiKushan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl flex-1 justify-center max-w-40"
+                >
+                  <Github className="mr-2" size={18} />
+                  GitHub
+                </a>
+                <a
+                  href="mailto:bhaktikushan@gmail.com"
+                  className="flex items-center px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl flex-1 justify-center max-w-40"
+                >
+                  <Mail className="mr-2" size={18} />
+                  Email
+                </a>
+              </div>
+              <div className="flex gap-3 justify-center">
+                <a
+                  href="tel:9014761920"
+                  className="flex items-center px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl flex-1 justify-center max-w-40"
+                >
+                  <Phone className="mr-2" size={18} />
+                  Call
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1nr0VNVsek51lzV55Ee9FzfioVOt17i4k/edit?usp=sharing&ouid=112356708439633219783&rtpof=true&sd=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl flex-1 justify-center max-w-40"
+                >
+                  <FileText className="mr-2" size={18} />
+                  Resume
+                </a>
+              </div>
+            </div>
           </div> 
 
           <div className="animate-bounce">
