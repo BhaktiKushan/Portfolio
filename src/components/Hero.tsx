@@ -58,7 +58,7 @@ const Hero = () => {
               <FileText className="mr-2" size={20} />
               Resume
             </a>
-          </div>
+          </div> 
 
           <div className="animate-bounce">
             <ArrowDown size={32} className="mx-auto text-gray-400 dark:text-gray-500" />
