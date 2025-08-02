@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Phone, FileText } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -48,6 +48,15 @@ const Hero = () => {
             >
               <Phone className="mr-2" size={20} />
               Call
+            </a>
+            <a
+              href="https://docs.google.com/document/d/1nr0VNVsek51lzV55Ee9FzfioVOt17i4k/edit?usp=sharing&ouid=112356708439633219783&rtpof=true&sd=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+            >
+              <FileText className="mr-2" size={20} />
+              Resume
             </a>
           </div>
 
