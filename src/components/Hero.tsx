@@ -12,7 +12,7 @@ const Hero = () => {
             </h1>
             <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-                MERN Stack Developer
+                Full Stack Developer
               </span>
             </div>
           </div>
@@ -91,7 +91,7 @@ const Hero = () => {
                   Call
                 </a>
                 <a
-                  href="https://docs.google.com/document/d/1nr0VNVsek51lzV55Ee9FzfioVOt17i4k/edit?usp=sharing&ouid=112356708439633219783&rtpof=true&sd=true"
+                  href="https://drive.google.com/file/d/13iubmr1IkcVdR8lhDg_0i-HxJP9m4hca/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl flex-1 justify-center max-w-40"
