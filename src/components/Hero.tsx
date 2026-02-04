@@ -52,7 +52,7 @@ const Hero = () => {
                 Call
               </a>
               <a
-                href="https://drive.google.com/file/d/1rq_FYIMzumAKD1hSt0bqzlqNPbhBEOS2/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1rq_FYIMzumAKD1hSt0bqzlqNPbhBEOS2/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
