@@ -29,7 +29,7 @@ const Footer = () => {
               Bhakti Kushan
             </div>
             <p className="text-gray-400 dark:text-gray-300 leading-relaxed">
-              B-Tech Final Year Student passionate about web development and AI/ML. 
+              B.Tech graduate passionate about web development and AI/ML. 
               Always eager to learn and contribute to innovative projects.
             </p>
           </div>
