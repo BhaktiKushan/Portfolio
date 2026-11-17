@@ -13,9 +13,9 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              I'm a passionate B-Tech final year student specializing in Computer Science Engineering 
-              with a focus on Artificial Intelligence and Machine Learning. Currently pursuing my degree 
-              at Vignana Bharathi Institute of Technology, I have developed a strong foundation in 
+              I'm a passionate B.Tech graduate in Computer Science Engineering 
+              with a focus on Artificial Intelligence and Machine Learning. As a 2026 graduate 
+              of Vignana Bharathi Institute of Technology, I have developed a strong foundation in 
               full-stack development using the MERN stack.
             </p>
             
@@ -29,7 +29,7 @@ const About = () => {
             <div className="flex flex-wrap gap-4 mt-8">
               <div className="flex items-center text-gray-600">
                 <GraduationCap className="mr-2 text-blue-600 dark:text-blue-400" size={20} />
-                <span>Final Year Student</span>
+                <span>B.Tech Graduate</span>
               </div>
               <div className="flex items-center text-gray-600">
                 <MapPin className="mr-2 text-blue-600 dark:text-blue-400" size={20} />
@@ -55,7 +55,7 @@ const About = () => {
                 <p className="text-gray-600 dark:text-gray-300">
                   Vignana Bharathi Institute of Technology
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">Final Year | 2022-2026</p>
+                <p className="text-gray-500 dark:text-gray-400">Graduated 2026 | 2022-2026</p>
               </div>
             </div>
           </div>
